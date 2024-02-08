@@ -75,32 +75,65 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 
-let arr = ['a', 'b', 'c', 'd', 'e'];
+// forEach looping arrays (cannot break out of a forEach loop)
 
-// Slice - does not change original array
-console.log(arr.slice(2));
-console.log(arr.slice(2, 4));
-console.log(arr.slice(-2));
-console.log(arr.slice(-1));
-console.log(arr.slice(1, -2));
-console.log(arr.slice());
-console.log([...arr]);
+// for (const movement of movements)
+for (const [i, movement] of movements.entries()) {
+  if (movement > 0) {
+    console.log(`Transaction ${i + 1}: You deposited ${movement}`);
+  } else {
+    console.log(`Transaction ${i + 1}: You withdrew ${Math.abs(movement)}`);
+  }
+}
 
-// Splice - mutates original array
-// console.log(arr.splice(2));
-arr.splice(-1);
-console.log(arr);
+console.log('-----forEach ---------');
 
-// Reverse - mutates the original array
-arr = ['a', 'b', 'c', 'd', 'e'];
-const arr2 = ['j', 'i', 'h', 'g', 'f'];
-console.log(arr2.reverse());
-console.log(arr2);
+movements.forEach(function (movement) {
+  if (movement > 0) {
+    console.log(`You deposited ${movement}`);
+  } else {
+    console.log(`You withdrew ${Math.abs(movement)}`);
+  }
+});
 
-// Concat
-const letters = arr.concat(arr2);
-console.log(letters);
-console.log([...arr, ...arr2]);
+// // The new at Method (works on strings also)
 
-// Join
-console.log(letters.join(' - '));
+// const arr = [23, 11, 64];
+// console.log(arr[0]);
+// console.log(arr.at(0));
+
+// // getting last array element
+// console.log(arr[arr.length - 1]);
+// console.log(arr.slice(-1)[0]);
+// console.log(arr.at(-1));
+
+/////////////////////////////////////////////////
+// let arr = ['a', 'b', 'c', 'd', 'e'];
+
+// // Slice - does not change original array
+// console.log(arr.slice(2));
+// console.log(arr.slice(2, 4));
+// console.log(arr.slice(-2));
+// console.log(arr.slice(-1));
+// console.log(arr.slice(1, -2));
+// console.log(arr.slice());
+// console.log([...arr]);
+
+// // Splice - mutates original array
+// // console.log(arr.splice(2));
+// arr.splice(-1);
+// console.log(arr);
+
+// // Reverse - mutates the original array
+// arr = ['a', 'b', 'c', 'd', 'e'];
+// const arr2 = ['j', 'i', 'h', 'g', 'f'];
+// console.log(arr2.reverse());
+// console.log(arr2);
+
+// // Concat
+// const letters = arr.concat(arr2);
+// console.log(letters);
+// console.log([...arr, ...arr2]);
+
+// // Join
+// console.log(letters.join(' - '));
