@@ -178,3 +178,20 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // // Join
 // console.log(letters.join(' - '));
+
+const eurToUsd = 1.1;
+
+const movementsUSD = movements.map(function (mov) {
+  return mov * eurToUsd;
+});
+console.log(movements);
+console.log(movementsUSD);
+
+const movementsUSDfor = [];
+for (const mov of movements) movementsUSDfor.push(mov * eurToUsd);
+console.log(movementsUSDfor);
+
+const movementsUSDarrow = movements.map(mov => mov * eurToUsd); // arrow function way for serial line 184... pros and cons to using it
+console.log(movementsUSDarrow);
+
+movements.map();
