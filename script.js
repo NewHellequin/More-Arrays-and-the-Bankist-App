@@ -540,3 +540,4 @@ labelBalance.addEventListener('click', function () {
 
   console.log(movementsUI);
 });
+
