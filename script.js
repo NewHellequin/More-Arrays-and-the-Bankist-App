@@ -569,4 +569,40 @@ let a = 10;
 console.log(a++);
 console.log(++a);
 
-// Exercise 3
+// Exercise 3 - creates a brand new object for an acc using reduce method (?)
+
+const { deposits, withdrawals } = accounts
+  .flatMap(acc => acc.movements)
+  .reduce(
+    (sums, cur) => {
+      // cur > 0 ? (sums.deposits += cur) : (sums.withdrawals += cur); not very DRY... apparerntly
+      sums[cur > 0 ? 'deposits' : 'withdrawals'] += cur;
+
+      return sums;
+    },
+    { deposits: 0, withdrawals: 0 }
+  );
+
+console.log(deposits, withdrawals);
+
+// Exercise 4
+
+// this is a nice title -> This Is a Nice Title
+
+const convertTitleCase = function (title) {
+  const capitalization = str => str[0].toUpperCase() + str.slice(1);
+  const exceptions = ['a', 'an', 'the', 'but', 'or', 'on', 'in', 'with', 'and'];
+  const titleCase = title
+    .toLowerCase()
+    .split(' ')
+    .map(word =>
+      exceptions.includes(word) ? word : word[0].toUpperCase() + word.slice(1)
+    )
+    .join(' ');
+
+  return capitalization(titleCase);
+};
+
+console.log(convertTitleCase('this is a nice long title'));
+console.log(convertTitleCase('this is a LONG title but not too long'));
+console.log(convertTitleCase('and here is another title with an EXAMPLE'));
